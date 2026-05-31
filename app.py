@@ -25,7 +25,8 @@ try:
     df = conn.read(spreadsheet=URL, ttl="0")
     df = df.dropna(how="all")
 except Exception as e:
-    st.error("Connection Error. Check your Secrets!")
+    st.error("❌ Google says:")
+    st.code(e)  # This will show the actual technical error
     st.stop()
 
 # 4. Dashboard
