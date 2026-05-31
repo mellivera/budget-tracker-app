@@ -22,7 +22,7 @@ URL = "https://docs.google.com/spreadsheets/d/1auQGBXjyMlym_KPrRo1CTTC1UDebQzA2e
 
 try:
     conn = st.connection("gsheets", type=GSheetsConnection)
-    df = conn.read(spreadsheet=URL, ttl="0")
+    df = conn.read(spreadsheet=URL, worksheet="Sheet1", ttl="0")
     df = df.dropna(how="all")
 except Exception as e:
     st.error("❌ Google says:")
