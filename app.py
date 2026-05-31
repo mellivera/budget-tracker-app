@@ -48,7 +48,7 @@ with st.form("add_form", clear_on_submit=True):
     if st.form_submit_button("Save to Cloud"):
         new_row = pd.DataFrame([{"Date": datetime.now().strftime("%Y-%m-%d"), "Category": cat, "Amount": amt, "Type": t_type, "Status": "Confirmed"}])
         updated_df = pd.concat([df, new_row], ignore_index=True)
-        conn.update(spreadsheet=URL, data=updated_df)
+        conn.update(spreadsheet=URL, worksheet="Sheet1", data=updated_df)
         st.success("Saved!")
         st.rerun()
 
